@@ -1,0 +1,17 @@
+{
+  "name": "be-the-hero-backend",
+  "version": "1.0.0",
+  "description": "Backend para gerar serviços para front-end desenvolvidos na semana omnistack 11.0 da @Rockeseat",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.2"
+  }
+}
