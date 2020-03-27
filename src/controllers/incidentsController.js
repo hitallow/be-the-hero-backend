@@ -8,14 +8,12 @@ module.exports = {
   async create(request, response) {
     const { title, description, value } = request.body;
     const ong_id = request.headers.authorization;
-    const [id] = await connection('incidents')
-      .insert({
-        title,
-        ong_id,
-        description,
-        value
-      })
-      .returning('*');
+    const [id] = await connection('incidents').insert({
+      title,
+      ong_id,
+      description,
+      value
+    });
     return response.json({
       id
     });
@@ -26,7 +24,13 @@ module.exports = {
    * @param {Response} response
    */
   async index(request, response) {
-    const result = await connection('incidents').select('*');
+    const [count] = await connection('incidents').count();
+    const { page = 1 } = request.params;
+    const result = await connection('incidents')
+      .limit(5)
+      .offset((page - 1) * 5)
+      .select('*');
+    response.header('X-Total-Count', count['count(*)']);
     return response.json(result);
   },
   /**
