@@ -4,8 +4,7 @@
   "description": "Backend para gerar serviços para front-end desenvolvidos na semana omnistack 11.0 da @Rockeseat",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "nodemon src/index.js"
   },
   "keywords": [],
   "author": "",
